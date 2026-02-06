@@ -1,0 +1,7 @@
+.claude
+CLAUDE.md
+.idea
+Task.pdf
+node_modules/
+dist/
+.env
