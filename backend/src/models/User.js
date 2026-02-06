@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const { GOAL_VALUES } = require('../../../shared/constants');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -38,7 +39,7 @@ const userSchema = new mongoose.Schema({
   },
   goal: {
     type: String,
-    enum: ['חיטוב', 'בניית מסה', 'ירידה במשקל', 'שמירה', 'כוח', 'סיבולת'],
+    enum: GOAL_VALUES,
     default: 'חיטוב'
   },
   cholesterolLevel: {

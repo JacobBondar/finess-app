@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+const { MEAL_TYPE_VALUES } = require('../../../shared/constants');
 
 const mealSchema = new mongoose.Schema({
   mealType: {
     type: String,
     required: [true, 'סוג הארוחה הוא שדה חובה'],
-    enum: ['ארוחת בוקר', 'ארוחת צהריים', 'ארוחת ערב', 'חטיף', 'לפני אימון', 'אחרי אימון']
+    enum: MEAL_TYPE_VALUES
   },
   description: {
     type: String,

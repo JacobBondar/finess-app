@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { MUSCLE_GROUP_VALUES, DIFFICULTY_VALUES } = require('../../../shared/constants');
 
 const exerciseSchema = new mongoose.Schema({
   name: {
@@ -14,11 +15,11 @@ const exerciseSchema = new mongoose.Schema({
   muscleGroup: {
     type: String,
     required: [true, 'קבוצת שרירים היא שדה חובה'],
-    enum: ['חזה', 'גב', 'כתפיים', 'רגליים', 'ידיים', 'יד קדמית', 'יד אחורית', 'בטן', 'ליבה', 'ישבן', 'שוקיים']
+    enum: MUSCLE_GROUP_VALUES
   },
   secondaryMuscles: [{
     type: String,
-    enum: ['חזה', 'גב', 'כתפיים', 'רגליים', 'ידיים', 'יד קדמית', 'יד אחורית', 'בטן', 'ליבה', 'ישבן', 'שוקיים']
+    enum: MUSCLE_GROUP_VALUES
   }],
   demoUrl: {
     type: String,
@@ -31,7 +32,7 @@ const exerciseSchema = new mongoose.Schema({
   },
   difficulty: {
     type: String,
-    enum: ['מתחיל', 'בינוני', 'מתקדם'],
+    enum: DIFFICULTY_VALUES,
     default: 'בינוני'
   },
   instructions: {

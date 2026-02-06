@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { MUSCLE_GROUP_VALUES, GOAL_VALUES, DAY_VALUES } = require('../../../shared/constants');
 
 const exerciseInWorkoutSchema = new mongoose.Schema({
   exercise: {
@@ -45,7 +46,7 @@ const workoutSchema = new mongoose.Schema({
   exercises: [exerciseInWorkoutSchema],
   targetMuscleGroups: [{
     type: String,
-    enum: ['חזה', 'גב', 'כתפיים', 'רגליים', 'ידיים', 'יד קדמית', 'יד אחורית', 'בטן', 'ליבה', 'ישבן', 'שוקיים']
+    enum: MUSCLE_GROUP_VALUES
   }],
   estimatedDuration: {
     type: Number, // in minutes
@@ -53,11 +54,11 @@ const workoutSchema = new mongoose.Schema({
   },
   goal: {
     type: String,
-    enum: ['חיטוב', 'בניית מסה', 'ירידה במשקל', 'שמירה', 'כוח', 'סיבולת']
+    enum: GOAL_VALUES
   },
   scheduledDays: [{
     type: String,
-    enum: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת']
+    enum: DAY_VALUES
   }],
   isTemplate: {
     type: Boolean,
