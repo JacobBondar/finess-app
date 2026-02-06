@@ -1,42 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const {
-  getWorkouts,
-  getWorkout,
-  getTodayWorkout,
-  createWorkout,
-  generateWorkout,
-  updateWorkout,
-  deleteWorkout,
-  completeWorkout
-} = require('../controllers/workout.controller');
+const controller = require('../controllers/workout.controller');
 const { protect } = require('../middleware/auth.middleware');
 
 // All routes require authentication
 router.use(protect);
 
 // @route   GET /api/workouts
-router.get('/', getWorkouts);
+router.get('/', controller.getWorkouts);
 
 // @route   GET /api/workouts/today
-router.get('/today', getTodayWorkout);
+router.get('/today', controller.getTodayWorkout);
 
 // @route   POST /api/workouts
-router.post('/', createWorkout);
+router.post('/', controller.createWorkout);
 
 // @route   POST /api/workouts/generate
-router.post('/generate', generateWorkout);
+// router.post('/generate', controller.generateWorkout);
 
 // @route   GET /api/workouts/:id
-router.get('/:id', getWorkout);
+router.get('/:id', controller.getWorkout);
 
 // @route   PUT /api/workouts/:id
-router.put('/:id', updateWorkout);
+router.put('/:id', controller.updateWorkout);
 
 // @route   DELETE /api/workouts/:id
-router.delete('/:id', deleteWorkout);
+router.delete('/:id', controller.deleteWorkout);
 
 // @route   POST /api/workouts/:id/complete
-router.post('/:id/complete', completeWorkout);
+router.post('/:id/complete', controller.completeWorkout);
 
 module.exports = router;
