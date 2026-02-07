@@ -4,7 +4,7 @@ const { messages, successResponse, errorResponse } = require('../utils/hebrewRes
 
 const register = async (req, res, next) => {
   try {
-    const { name, email, password, age, currentWeight, height, goal } = req.body;
+    const { name, email, password, age, weight, height, goal } = req.body;
 
     // Check if user exists
     const existingUser = await User.findOne({ email });
@@ -18,7 +18,7 @@ const register = async (req, res, next) => {
       email,
       password,
       age,
-      currentWeight,
+      weight,
       height,
       goal
     });
@@ -32,7 +32,7 @@ const register = async (req, res, next) => {
         name: user.name,
         email: user.email,
         age: user.age,
-        currentWeight: user.currentWeight,
+        weight: user.weight,
         height: user.height,
         goal: user.goal
       },
