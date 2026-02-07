@@ -9,18 +9,18 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 const server = app.listen(PORT, () => {
-  console.log(`השרת פועל בפורט ${PORT}`);
-  console.log(`מצב: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`The port works in: ${PORT}`);
+  console.log(`Status: ${process.env.NODE_ENV || 'development'}`);
 });
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
-  console.error(`שגיאה: ${err.message}`);
+  console.error(`Error: ${err.message}`);
   server.close(() => process.exit(1));
 });
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
-  console.error(`שגיאה לא צפויה: ${err.message}`);
+  console.error(`Unexpected error:: ${err.message}`);
   process.exit(1);
 });
